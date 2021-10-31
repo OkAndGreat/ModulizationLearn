@@ -1,0 +1,15 @@
+println ("log from settings.gradle build file")
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+
+rootProject.name = "ModulizationLearn"
+include ':app'
+include ':login'
+include ':app:personal'
