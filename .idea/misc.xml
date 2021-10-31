@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProject/ModulizationLearn/app/personal/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="..\:/AndroidProject/ModulizationLearn/app/src/main/res/layout/activity_main.xml" value="0.2941777323799796" />
         <entry key="..\:/AndroidProject/ModulizationLearn/login/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />
+        <entry key="..\:/AndroidProject/ModulizationLearn/personal/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.29074074074074074" />
+        <entry key="..\:/AndroidProject/ModulizationLearn/personal/src/main/res/layout/activity_main.xml" value="0.3074074074074074" />
       </map>
     </option>
   </component>

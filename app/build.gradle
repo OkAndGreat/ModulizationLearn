@@ -3,22 +3,29 @@ plugins {
     id 'kotlin-android'
 }
 
-println ("log from app build.gradle file")
+println("log from app build.gradle file")
 
 android {
-    compileSdk 30
+    compileSdk commonConfig.compileSdk
 
     defaultConfig {
-        applicationId "com.redrock.modulizationlearn"
-        minSdk 21
-        targetSdk 30
-        versionCode 1
-        versionName "1.0"
+        applicationId appId.app
+        minSdk commonConfig.minSdk
+        targetSdk commonConfig.targetSdk
+        versionCode commonConfig.versionCode
+        versionName commonConfig.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner commonConfig.testInstrumentationRunner
+
+        // 让Java代码也可以得到gradle里的信息
+        // 组件化 和 集成化 的时候需要
+        buildConfigField("boolean", "isRelease", String.valueOf(isRelease))
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "debug", "\"${url.debug}\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -34,11 +41,11 @@ android {
 }
 
 dependencies {
+    dependenciesConfig.each { k, v -> implementation v }
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    if (isRelease) {
+        //这里的依赖如果模块很多也可以使用统一管理
+        implementation project(':login')
+        implementation project(':personal')
+    }
 }
