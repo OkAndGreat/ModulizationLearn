@@ -1,6 +1,12 @@
 plugins {
-    id 'com.android.application'
     id 'kotlin-android'
+}
+
+//集成化环境和组件化环境
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
 }
 
 android {
