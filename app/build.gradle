@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
 }
 
 println("log from app build.gradle file")
@@ -20,6 +19,19 @@ android {
         // 让Java代码也可以得到gradle里的信息
         // 组件化 和 集成化 的时候需要
         buildConfigField("boolean", "isRelease", String.valueOf(isRelease))
+
+        /// 在gradle文件中配置选项参数值（用于APT传参接收）
+        // 同学们注意：切记：必须写在defaultConfig节点下
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName(), packageNameForAPT: packageNameForAPT]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -35,9 +47,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 dependencies {
@@ -45,7 +54,13 @@ dependencies {
 
     if (isRelease) {
         //这里的依赖如果模块很多也可以使用统一管理
-        implementation project(':login')
-        implementation project(':personal')
+//        implementation project(':login')
+//        implementation project(':personal')
     }
+
+    //  arouter 专用 注解模块
+    implementation project(":arouter_annotation")
+
+    // arouter 专用 注解处理器
+    annotationProcessor project(':arouter_compiler')
 }

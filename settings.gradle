@@ -11,5 +11,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "ModulizationLearn"
 include ':app'
-include ':login'
-include ':personal'
+//include ':login'
+//include ':personal'
+include ':arouter_compiler'
+include ':arouter_annotation'

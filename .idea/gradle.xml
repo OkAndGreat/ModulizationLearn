@@ -12,8 +12,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/login" />
-            <option value="$PROJECT_DIR$/personal" />
+            <option value="$PROJECT_DIR$/arouter_annotation" />
+            <option value="$PROJECT_DIR$/arouter_compiler" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
