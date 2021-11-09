@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
 }
 
 println("log from app build.gradle file")
@@ -62,5 +64,5 @@ dependencies {
     implementation project(":arouter_annotation")
 
     // arouter 专用 注解处理器
-    annotationProcessor project(':arouter_compiler')
+    kapt project(':arouter_compiler')
 }
