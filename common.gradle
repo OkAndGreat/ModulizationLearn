@@ -2,7 +2,7 @@
 ext {
 
     // 正式环境 和 测试环境
-    isRelease = true
+    isRelease = false
 
     packageNameForAPT = "com.redrock.ModulizationLearn";
 

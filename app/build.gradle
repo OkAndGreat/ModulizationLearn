@@ -56,8 +56,8 @@ dependencies {
 
     if (isRelease) {
         //这里的依赖如果模块很多也可以使用统一管理
-//        implementation project(':login')
-//        implementation project(':personal')
+        implementation project(':login')
+        implementation project(':personal')
     }
 
     //  arouter 专用 注解模块
