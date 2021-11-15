@@ -1,7 +1,5 @@
-package com.redrock.arouter_api;
+package com.redrock.arouter_annotation;
 
-
-import com.redrock.arouter_annotation.RouterBean;
 
 import java.util.Map;
 

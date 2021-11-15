@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.redrock.arouter_annotation.ARouter;
 
 
-@ARouter(path = "app/MainActivity")
+@ARouter(path = "/app/MainActivity")
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -38,9 +38,6 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
-/**
- * 同学们注意：编码此类，记住就是一个字（细心，细心，细心），出了问题debug真的不好调试
- */
 
 // AutoService则是固定的写法，加个注解即可
 // 通过auto-service中的@AutoService可以自动生成AutoService注解处理器，用来注册
@@ -91,6 +88,7 @@ public class ARouterProcessor extends AbstractProcessor {
         elementTool = processingEnvironment.getElementUtils();
         messager = processingEnvironment.getMessager();
         filer = processingEnvironment.getFiler();
+        typeTool = processingEnvironment.getTypeUtils();
 
         // 只有接受到 App壳 传递过来的书籍，才能证明我们的 APT环境搭建完成
         options = processingEnvironment.getOptions().get(ProcessorConfig.OPTIONS);
@@ -117,6 +115,8 @@ public class ARouterProcessor extends AbstractProcessor {
 
         //用来判断是否为activity
         TypeMirror activityMirror = elementTool.getTypeElement(ProcessorConfig.ACTIVITY_PACKAGE).asType();
+
+
 
         // 遍历所有的类节点
         for (Element element : elements) {
@@ -159,7 +159,6 @@ public class ARouterProcessor extends AbstractProcessor {
         TypeElement pathType = elementTool.getTypeElement(ProcessorConfig.AROUTER_API_PATH); // ARouterPath描述
         TypeElement groupType = elementTool.getTypeElement(ProcessorConfig.AROUTER_API_GROUP); // ARouterGroup描述
 
-        //要先创建二级路由再创建一级路由，因为一级路由会使用到二级路由
         try {
             createPathFile(pathType); // 生成 Path类
         } catch (IOException e) {

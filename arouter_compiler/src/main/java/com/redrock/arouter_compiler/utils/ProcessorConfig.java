@@ -15,11 +15,14 @@ public interface ProcessorConfig {
     // ARouter api 包名
     String AROUTER_API_PACKAGE = "com.redrock.arouter_api";
 
-    // ARouter api 的 ARouterGroup 高层标准
-    String AROUTER_API_GROUP = AROUTER_API_PACKAGE + ".ARouterGroup";
+    //Arouter annotation 包名
+    String AROUTER_ANNOTATION_PACKAGE = "com.redrock.arouter_annotation";
 
-    // ARouter api 的 ARouterPath 高层标准
-    String AROUTER_API_PATH = AROUTER_API_PACKAGE + ".ARouterPath";
+    //  ARouterGroup 高层标准
+    String AROUTER_API_GROUP = AROUTER_ANNOTATION_PACKAGE + ".ARouterGroup";
+
+    //  ARouterPath 高层标准
+    String AROUTER_API_PATH = AROUTER_ANNOTATION_PACKAGE + ".ARouterPath";
 
     // 路由组，中的 Path 里面的 方法名
     String PATH_METHOD_NAME = "getPathMap";

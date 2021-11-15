@@ -1,4 +1,4 @@
-package com.redrock.arouter_api;
+package com.redrock.arouter_annotation;
 
 import java.util.Map;
 
