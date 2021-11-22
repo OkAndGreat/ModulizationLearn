@@ -62,6 +62,7 @@ dependencies {
 
     //  arouter 专用 注解模块
     implementation project(":arouter_annotation")
+    implementation project(path: ':arouter_api')
 
     // arouter 专用 注解处理器
     kapt project(':arouter_compiler')

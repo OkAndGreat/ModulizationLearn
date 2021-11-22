@@ -89,8 +89,6 @@ public class ARouterProcessor extends AbstractProcessor {
         messager = processingEnvironment.getMessager();
         filer = processingEnvironment.getFiler();
         typeTool = processingEnvironment.getTypeUtils();
-
-        // 只有接受到 App壳 传递过来的书籍，才能证明我们的 APT环境搭建完成
         options = processingEnvironment.getOptions().get(ProcessorConfig.OPTIONS);
         aptPackage = processingEnvironment.getOptions().get(ProcessorConfig.APT_PACKAGE);
         String aptPackage = processingEnvironment.getOptions().get(ProcessorConfig.APT_PACKAGE);
@@ -105,10 +103,7 @@ public class ARouterProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        if (set.isEmpty()) {
-            messager.printMessage(Diagnostic.Kind.NOTE, "并没有发现 被@ARouter注解的地方呀");
-            return false;
-        }
+        if (set.isEmpty()) return false;
 
         // 获取所有被 @ARouter 注解的 元素集合
         Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(ARouter.class);
@@ -122,7 +117,7 @@ public class ARouterProcessor extends AbstractProcessor {
         for (Element element : elements) {
             // 获取被@ARetuer注解的类
             String className = element.getSimpleName().toString();
-            messager.printMessage(Diagnostic.Kind.NOTE, ">>>>>>>>>>>>>> 被@ARetuer注解的类有：" + className);
+            messager.printMessage(Diagnostic.Kind.NOTE, ">>>>>>>>>>>>>> 被@ARetuer注解的类有：" + className +"    模块为->"+options);
 
             // 拿到注解以获得注解中用户自定义的信息
             ARouter aRouter = element.getAnnotation(ARouter.class);

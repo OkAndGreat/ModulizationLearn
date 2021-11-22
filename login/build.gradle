@@ -1,5 +1,6 @@
 plugins {
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 //集成化环境和组件化环境
@@ -61,9 +62,10 @@ dependencies {
 
     //  arouter 专用 注解模块
     implementation project(":arouter_annotation")
+    implementation project(path: ':arouter_api')
 
     // arouter 专用 注解处理器
-    annotationProcessor project(':arouter_compiler')
+    kapt project(':arouter_compiler')
 
     dependenciesConfig.each { k, v -> implementation v }
 

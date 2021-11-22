@@ -3,7 +3,7 @@ package com.redrock.arouter_compiler.utils;
 public interface ProcessorConfig {
 
     // @ARouter注解 的 包名 + 类名
-    String AROUTER_PACKAGE =  "com.redrock.arouter_annotation.ARouter";
+    String AROUTER_PACKAGE = "com.redrock.arouter_annotation.ARouter";
 
     // 接收参数的TAG标记
     String OPTIONS = "moduleName"; // 同学们：目的是接收 每个module名称
@@ -41,4 +41,23 @@ public interface ProcessorConfig {
 
     // 路由组，GROUP 最终要生成的 文件名
     String GROUP_FILE_NAME = "ARouter$$Group$$";
+
+
+    // @Parameter注解 的 包名 + 类名
+    String PARAMETER_PACKAGE = "com.redrock.arouter_annotation.Parameter";
+
+    // ARouter api 的 ParameterGet 高层标准
+    String AROUTER_AIP_PARAMETER_GET = "com.redrock.arouter_annotation.ParameterGet";
+
+    // ARouter api 的 ParameterGet 方法参数的名字
+    String PARAMETER_NAME = "targetParameter";
+
+    // ARouter api 的 ParmeterGet 方法的名字
+    String PARAMETER_METHOD_NAME = "getParameter";
+
+    // ARouter aip 的 ParmeterGet 的 生成文件名称 $$Parameter
+    String PARAMETER_FILE_NAME = "$$Parameter";
+
+    // String全类名
+    String STRING = "java.lang.String";
 }
